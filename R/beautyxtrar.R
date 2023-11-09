@@ -6,15 +6,13 @@
 #   Test Package:              'Ctrl + Shift + T'
 
 # No arquivo custom_theme.R
-if (!requireNamespace("extrafont", quietly = TRUE)) {
-  install.packages("extrafont")
-  library(extrafont)
-  loadfonts(device = "win")
-}
 
 library(ggplot2)
 
 theme_xtra <- function (base_size = 12, base_family = "Roboto Condensed") {
+  if (requireNamespace("extrafont", quietly = TRUE)) {
+    extrafont::loadfonts(device = "win")
+  }
   half_line <- base_size/2
   theme(
     line = element_line(color = "black", linewidth = .5,
