@@ -1,0 +1,13 @@
+Package: beautyxtrar
+Type: Package
+Title: BeautyXtraR
+Version: 0.1.0
+Author: drewmelo
+Maintainer: The package maintainer <andremelopix@hotmail.com>
+Description: Saiba mais sobre o pacote BeautyXtraR:
+    Um pacote que oferece aprimoramentos estéticos para gráficos ggplot2, 
+    apresentando o tema theme_xtra. Desfrute de linhas elegantes, texto legível e 
+    um layout cuidadosamente projetado para uma visualização de dados mais agradável 
+    e profissional no R.
+Encoding: UTF-8
+LazyData: true
