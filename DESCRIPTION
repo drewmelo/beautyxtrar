@@ -11,3 +11,5 @@ Description: Saiba mais sobre o pacote BeautyXtraR:
     e profissional no R.
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/drewmelo/beautyxtrar
+BugReports: https://github.com/drewmelo/beautyxtrar/issues
