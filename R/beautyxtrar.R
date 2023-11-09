@@ -116,9 +116,11 @@ theme_xtra <- function (base_size = 12, base_family = "Roboto Condensed") {
 #' Tema customizado para gráficos
 #'
 #' Um tema personalizado para gráficos usando a biblioteca extrafont.
+#' @import extrafont
 #'
 #' @param base_size Tamanho base do texto.
 #' @param base_family Família da fonte base.
 #' @return
 #' @export
+#'
 #'
