@@ -9,6 +9,7 @@
 
 library(ggplot2)
 
+# Tema principal
 theme_xtra <- function (base_size = 12, base_family = "Roboto Condensed") {
   if (requireNamespace("extrafont", quietly = TRUE)) {
     extrafont::loadfonts(device = "win", quiet = TRUE)
@@ -58,7 +59,7 @@ theme_xtra <- function (base_size = 12, base_family = "Roboto Condensed") {
     legend.spacing.x = NULL,
     legend.spacing.y = NULL,
     legend.margin = margin(.2, .2, .2, .2, "cm"),
-    legend.key = element_rect(fill = "gray95", color = "white"),
+    legend.key = element_rect(fill = "white", color = "white"),
     legend.key.size = unit(1.2, "lines"),
     legend.key.height = NULL,
     legend.key.width = NULL,
@@ -104,16 +105,20 @@ theme_xtra <- function (base_size = 12, base_family = "Roboto Condensed") {
     plot.subtitle = element_text(size = base_size * 1.3,
                                  hjust = .5, vjust = 1,
                                  margin = margin(b = half_line * .9)),
-    plot.caption = element_text(size = rel(0.9), hjust = 0, vjust = 1,
+    plot.caption = element_text(size = rel(0.9), hjust = .5, vjust = 1,
                                 margin = margin(t = half_line * .9)),
     plot.caption.position = "panel",
     plot.tag = element_text(size = rel(1.2), hjust = .5, vjust = .5),
     plot.tag.position = "topleft",
     plot.margin = margin(rep(base_size, 4)),
     complete = TRUE
+  ) %+replace% theme(
+    legend.position = 'top',
+    legend.margin = margin(b = -8)
   )
 }
 
+# Tema principal - dark
 dark_theme_xtra <- function (base_size = 12, base_family = "Roboto Condensed") {
   if (requireNamespace("extrafont", quietly = TRUE)) {
     extrafont::loadfonts(device = "win", quiet = TRUE)
@@ -216,12 +221,72 @@ dark_theme_xtra <- function (base_size = 12, base_family = "Roboto Condensed") {
     plot.tag.position = "topleft",
     plot.margin = margin(rep(base_size, 4)),
     complete = TRUE
+  ) %+replace% theme(
+    legend.position = 'top',
+    legend.margin = margin(b = -8)
+  )
+}
+
+# Tema academico
+theme_academic <- function (base_size = 12, base_family = "Times New Roman") {
+  if (requireNamespace("extrafont", quietly = TRUE)) {
+    extrafont::loadfonts(device = "win", quiet = TRUE)
+  }
+  half_line <- base_size/2
+  theme(
+    line = element_line(color = "black", size = .7, linetype = 1, lineend = "butt"),
+    rect = element_rect(fill = "white", color = "black", size = 0.5, linetype = 1),
+    text = element_text(
+      family = base_family,
+      face = "plain",
+      color = "black",
+      size = base_size,
+      lineheight = 0.9,
+      hjust = 0.5,
+      vjust = 0.5,
+      angle = 0,
+      margin = margin(),
+      debug = FALSE
+    ),
+    axis.line = element_line(colour = "black", linewidth = rel(1)),  # Adicionado
+    axis.text = element_text(size = base_size * 1.2, color = "gray30"),
+    axis.ticks = element_line(color = "gray30", size = 0.7),
+    axis.title = element_text(size = base_size * 1.3, color = "gray10"),
+    legend.background = element_rect(color = NA),
+    legend.spacing = unit(0.4, "cm"),
+    legend.margin = margin(0.2, 0.2, 0.2, 0.2, "cm"),
+    legend.key = element_rect(fill = "white", color = "white"),
+    legend.text = element_text(size = 12),
+    panel.background = element_blank(),
+    panel.border = element_rect(color = "gray30", fill = NA, size = 0.7),
+    panel.grid.major = element_line(color = "gray90", size = 0.5, linetype = "dashed"),
+    panel.grid.minor = element_line(color = "gray90", size = 0.5, linetype = "dashed"),
+    panel.spacing = unit(base_size, "pt"),
+    strip.background = element_rect(fill = "white", color = "gray30"),
+    strip.text = element_text(color = "black", size = base_size),
+    plot.background = element_rect(color = NA),
+    plot.title = element_text(size = base_size * 1.8, hjust = 0, vjust = 1, face = "plain", margin = margin(b = half_line * 1.2),
+                              colour = 'black'),
+    plot.subtitle = element_text(size = base_size * 1.3, hjust = 0, vjust = 2, margin = margin(b = half_line * 0.9,),
+                                 colour = 'gray20'),
+    plot.caption = element_text(size = rel(0.9), hjust = .5, vjust = 1, margin = margin(t = half_line * 0.9)),
+    plot.tag = element_text(size = rel(1.2), hjust = 0.5, vjust = 0.5),
+    plot.margin = margin(rep(base_size, 4)),
+    complete = TRUE
+  ) %+replace% theme(
+    panel.border = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    axis.line.x = NULL,  # Remove a linha do eixo x
+    axis.line.y = NULL,  # Remove a linha do eixo y
+    axis.line.x.top = NULL,  # Remove a linha superior do eixo x
+    axis.line.y.right = NULL,  # Remove a linha direita do eixo y
+    legend.position = 'top',
+    legend.margin = margin(b = -8)
   )
 }
 
 #' Tema customizado para gráficos
-#'
-#' Um tema personalizado para gráficos usando a biblioteca extrafont.
 #' @import extrafont
 #'
 #' @param base_size Tamanho base do texto.
