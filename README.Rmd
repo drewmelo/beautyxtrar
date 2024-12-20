@@ -1,0 +1,25 @@
+---
+output: 
+  github_document:
+    pandoc_args: --webtex
+#    pandoc_args: --webtex=https://ibm.codecogs.com/png.latex?
+always_allow_html: true
+---
+
+<!-- README.md é gerado pelo README.Rmd. -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figuras/README-",
+  message = FALSE,
+  #out.width = "100%",
+  fig.width = 5,
+  fig.height = 5
+)
+```
+
+# beautyxtrar <img src="man/figuras/logo.png" align="right" alt="" width="160px" />
+ 
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
