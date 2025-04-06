@@ -239,7 +239,7 @@ theme_academic <- function (base_size = 12, base_family = "Times New Roman") {
     text = element_text(
       family = base_family,
       face = "plain",
-      color = "black",
+      color = "gray30",
       size = base_size,
       lineheight = 0.9,
       hjust = 0.5,
